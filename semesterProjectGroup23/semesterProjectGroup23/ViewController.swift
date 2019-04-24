@@ -10,9 +10,27 @@ import UIKit
 
 class ViewController: UIViewController {
 
+	@IBOutlet weak var SearchButtonOutlet: UIButton!
+	@IBAction func SearchButtonAction(_ sender: UIButton) {
+		// segue to SearchController
+	}
+	
+	@IBOutlet weak var TableViewOutlet: UITableView!
+	
+	// need to implement TableView functions
+	
+	// each TableViewCell has a stack view containing the
+	// corresponding labels (name, value, and change in value)
+	
+	// each TableViewCell also has a button that should take
+	// the user to that stock's StockController
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		SearchButtonOutlet.layer.cornerRadius = 10
+		TableViewOutlet.layer.cornerRadius = 5
+	
 	}
 
 
