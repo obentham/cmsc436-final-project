@@ -8,13 +8,23 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class ViewController: UIViewController {
+    var cbClient: CoinbaseClient
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.cbClient = CoinbaseClient()
+        
+        super.init(coder: aDecoder)
+    }
+    
+    
 	@IBOutlet weak var SearchButtonOutlet: UIButton!
 	@IBAction func SearchButtonAction(_ sender: UIButton) {
 		// segue to SearchController
 	}
-	
+    
+    
 	@IBOutlet weak var TableViewOutlet: UITableView!
 	
 	// need to implement TableView functions
@@ -30,9 +40,17 @@ class ViewController: UIViewController {
 		
 		SearchButtonOutlet.layer.cornerRadius = 10
 		TableViewOutlet.layer.cornerRadius = 5
-	
+        
+        // Test Script
+        
+        //cbClient.connectToStream()
+        cbClient.getProducts()
+        //fetchCryptoData()
 	}
 
-
+    
+    
+    
+    
 }
 

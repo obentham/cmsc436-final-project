@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		555CD5CDB907D45C20FF26EB /* Pods_semesterProjectGroup23.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA95F64BA5DEA7AC319EE97A /* Pods_semesterProjectGroup23.framework */; };
 		745E52D6226BE515005C0E09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E52D5226BE515005C0E09 /* AppDelegate.swift */; };
 		745E52D8226BE515005C0E09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 745E52D7226BE515005C0E09 /* ViewController.swift */; };
 		745E52DB226BE515005C0E09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745E52D9226BE515005C0E09 /* Main.storyboard */; };
@@ -15,9 +16,12 @@
 		74B90B8A2270C8F60058742B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B892270C8F60058742B /* SearchController.swift */; };
 		74B90B8C2270C93B0058742B /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8B2270C93B0058742B /* StockController.swift */; };
 		74B90B8E2270CC890058742B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8D2270CC890058742B /* GraphView.swift */; };
+		DEEC5104227BF90C00DB8288 /* CoinbaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */; };
+		DEEC5106227C0A2600DB8288 /* apikey.txt in Resources */ = {isa = PBXBuildFile; fileRef = DEEC5105227C0A2600DB8288 /* apikey.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2475332B3EC96E286825DACD /* Pods-semesterProjectGroup23.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-semesterProjectGroup23.release.xcconfig"; path = "Target Support Files/Pods-semesterProjectGroup23/Pods-semesterProjectGroup23.release.xcconfig"; sourceTree = "<group>"; };
 		745E52D2226BE515005C0E09 /* semesterProjectGroup23.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = semesterProjectGroup23.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		745E52D5226BE515005C0E09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		745E52D7226BE515005C0E09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +32,10 @@
 		74B90B892270C8F60058742B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		74B90B8B2270C93B0058742B /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
 		74B90B8D2270CC890058742B /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseClient.swift; sourceTree = "<group>"; };
+		DEEC5105227C0A2600DB8288 /* apikey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apikey.txt; sourceTree = "<group>"; };
+		FA95F64BA5DEA7AC319EE97A /* Pods_semesterProjectGroup23.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_semesterProjectGroup23.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAA42B257280EF4052C8926C /* Pods-semesterProjectGroup23.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-semesterProjectGroup23.debug.xcconfig"; path = "Target Support Files/Pods-semesterProjectGroup23/Pods-semesterProjectGroup23.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +43,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				555CD5CDB907D45C20FF26EB /* Pods_semesterProjectGroup23.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		23D91DACC8502C87D9C2D28B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FA95F64BA5DEA7AC319EE97A /* Pods_semesterProjectGroup23.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		462FC8FDA0B6D7005609EAD2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FAA42B257280EF4052C8926C /* Pods-semesterProjectGroup23.debug.xcconfig */,
+				2475332B3EC96E286825DACD /* Pods-semesterProjectGroup23.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		745E52C9226BE515005C0E09 = {
 			isa = PBXGroup;
 			children = (
 				745E52D4226BE515005C0E09 /* semesterProjectGroup23 */,
 				745E52D3226BE515005C0E09 /* Products */,
+				462FC8FDA0B6D7005609EAD2 /* Pods */,
+				23D91DACC8502C87D9C2D28B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +88,7 @@
 		745E52D4226BE515005C0E09 /* semesterProjectGroup23 */ = {
 			isa = PBXGroup;
 			children = (
+				DEEC5105227C0A2600DB8288 /* apikey.txt */,
 				745E52D5226BE515005C0E09 /* AppDelegate.swift */,
 				745E52D7226BE515005C0E09 /* ViewController.swift */,
 				74B90B892270C8F60058742B /* SearchController.swift */,
@@ -69,6 +98,7 @@
 				745E52DC226BE51A005C0E09 /* Assets.xcassets */,
 				745E52DE226BE51A005C0E09 /* LaunchScreen.storyboard */,
 				745E52E1226BE51A005C0E09 /* Info.plist */,
+				DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */,
 			);
 			path = semesterProjectGroup23;
 			sourceTree = "<group>";
@@ -80,9 +110,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 745E52E4226BE51A005C0E09 /* Build configuration list for PBXNativeTarget "semesterProjectGroup23" */;
 			buildPhases = (
+				A697FFB228E3488B9DA2C028 /* [CP] Check Pods Manifest.lock */,
 				745E52CE226BE515005C0E09 /* Sources */,
 				745E52CF226BE515005C0E09 /* Frameworks */,
 				745E52D0226BE515005C0E09 /* Resources */,
+				800B0DBD510301B603CFEA4F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -134,10 +166,58 @@
 				745E52E0226BE51A005C0E09 /* LaunchScreen.storyboard in Resources */,
 				745E52DD226BE51A005C0E09 /* Assets.xcassets in Resources */,
 				745E52DB226BE515005C0E09 /* Main.storyboard in Resources */,
+				DEEC5106227C0A2600DB8288 /* apikey.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		800B0DBD510301B603CFEA4F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-semesterProjectGroup23/Pods-semesterProjectGroup23-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-semesterProjectGroup23/Pods-semesterProjectGroup23-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A697FFB228E3488B9DA2C028 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-semesterProjectGroup23-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		745E52CE226BE515005C0E09 /* Sources */ = {
@@ -148,6 +228,7 @@
 				745E52D8226BE515005C0E09 /* ViewController.swift in Sources */,
 				74B90B8A2270C8F60058742B /* SearchController.swift in Sources */,
 				74B90B8C2270C93B0058742B /* StockController.swift in Sources */,
+				DEEC5104227BF90C00DB8288 /* CoinbaseClient.swift in Sources */,
 				745E52D6226BE515005C0E09 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,6 +373,7 @@
 		};
 		745E52E5226BE51A005C0E09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAA42B257280EF4052C8926C /* Pods-semesterProjectGroup23.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -310,6 +392,7 @@
 		};
 		745E52E6226BE51A005C0E09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2475332B3EC96E286825DACD /* Pods-semesterProjectGroup23.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
