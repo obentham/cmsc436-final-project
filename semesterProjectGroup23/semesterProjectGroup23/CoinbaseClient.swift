@@ -38,31 +38,32 @@ class CoinbaseClient: WebSocketDelegate {
     }
     
     // REST API CALLS
-    func getProducts() {
+    func getProducts() -> [Product]{
         let getProductsURL = URL(string: restAPIURL + "/products")
-        
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         var dataTask: URLSessionDataTask
-    
-        
         let urlRequest = URLRequest(url: getProductsURL!)
+        var productArray:[Product] = []
         
         dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
             if error == nil {
                 if let data = data,
-                    let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [Any] {
+                let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [Any] {
+                    //print(json)
                     
-                    print(json)
+                    for case let result as [String:Any] in json! {
+                        if let product = Product(json: result)  {
+                            productArray.append(product)
+                        }
+                    }
                 }
-
-            
-                
             }
             
+            return productArray
         }
         
         dataTask.resume()
-
+        return productArray
     }
     
     func getHistoricRates () {
@@ -141,5 +142,35 @@ class CoinbaseClient: WebSocketDelegate {
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("Received data: \(data.count)")
+    }
+}
+
+enum Serialization: Error {
+    case missing(String)
+    case invalid(String,Any)
+}
+
+struct Product {
+    let id: String
+    let base_currency: String
+    let quote_currency: String
+    let display_name: String
+}
+
+extension Product {
+    init?(json: [String:Any]) {
+        guard
+            let id = json["id"] as? String,
+            let base_currency = json["base_currency"] as? String,
+            let quote_currency = json["quote_currency"] as? String,
+            let display_name = json["display_name"] as? String
+        else {
+            return nil
+        }
+        
+        self.id = id
+        self.base_currency = base_currency
+        self.quote_currency = quote_currency
+        self.display_name = display_name
     }
 }
