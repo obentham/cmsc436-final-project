@@ -44,7 +44,8 @@ class ViewController: UIViewController {
         // Test Script
         
         //cbClient.connectToStream()
-        cbClient.getHistoricRates(id: "BTC-USD", interval: "900")
+        //cbClient.getHistoricRates(id: "BTC-USD", interval: "900")
+        cbClient.getProducts()
         //fetchCryptoData()
 	}
 

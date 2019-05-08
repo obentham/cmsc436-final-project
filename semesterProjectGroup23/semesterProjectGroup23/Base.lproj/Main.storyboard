@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6dU-vf-FVV">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="semesterProjectGroup23" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fJy-hD-DB8">
-                                <rect key="frame" x="10" y="142" width="355" height="515"/>
+                                <rect key="frame" x="10" y="142" width="355" height="466"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="mIC-ER-QMs">
@@ -112,6 +112,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Home" id="s3O-8m-9KZ"/>
                     <connections>
                         <outlet property="SearchButtonOutlet" destination="lUx-IO-56X" id="Rnl-ba-g88"/>
                         <outlet property="TableViewOutlet" destination="fJy-hD-DB8" id="PhE-3k-SIV"/>
@@ -119,9 +120,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136.80000000000001" y="132.68365817091455"/>
+            <point key="canvasLocation" x="154" y="-196"/>
         </scene>
-        <!--Stock Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="zeN-0I-dCL">
+            <objects>
+                <tabBarController id="6dU-vf-FVV" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="rvu-lM-ZI0">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="33W-GP-D8x"/>
+                        <segue destination="wT4-dy-Voi" kind="relationship" relationship="viewControllers" id="gSc-QF-YJ5"/>
+                        <segue destination="2HC-i5-uWB" kind="relationship" relationship="viewControllers" id="xme-7s-dzG"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SC0-a2-YAc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-838" y="309"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="u88-YK-Vgq">
             <objects>
                 <viewController id="wT4-dy-Voi" customClass="StockController" customModule="semesterProjectGroup23" customModuleProvider="target" sceneMemberID="viewController">
@@ -145,24 +165,15 @@
                         <color key="backgroundColor" red="0.20000000000000001" green="0.76862745099999996" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="PTn-Df-g62"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="cDg-jv-259"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1d-Xu-3Ms" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="465.51724137931041"/>
+            <point key="canvasLocation" x="670" y="531"/>
         </scene>
-        <!--Search Controller-->
+        <!--Search-->
         <scene sceneID="h1E-LN-c0R">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="fMl-Du-51c" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <searchDisplayController id="WJd-Iy-xfF">
-                    <connections>
-                        <outlet property="delegate" destination="2HC-i5-uWB" id="GoL-jh-1k0"/>
-                        <outlet property="searchBar" destination="9zN-vp-Kpb" id="Pcz-lD-cdp"/>
-                        <outlet property="searchContentsController" destination="2HC-i5-uWB" id="6Vz-hO-TMq"/>
-                        <outlet property="searchResultsDataSource" destination="2HC-i5-uWB" id="jbz-Qc-CNj"/>
-                        <outlet property="searchResultsDelegate" destination="2HC-i5-uWB" id="VDT-8c-yXc"/>
-                    </connections>
-                </searchDisplayController>
                 <tableViewController id="2HC-i5-uWB" customClass="SearchController" customModule="semesterProjectGroup23" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="q1E-ox-JM9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -227,12 +238,23 @@
                             <outlet property="delegate" destination="2HC-i5-uWB" id="ksh-bI-Uxe"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Search" id="dN8-TA-fiZ"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="WJd-Iy-xfF" id="TMF-yL-fxc"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fMl-Du-51c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="WJd-Iy-xfF">
+                    <connections>
+                        <outlet property="delegate" destination="2HC-i5-uWB" id="GoL-jh-1k0"/>
+                        <outlet property="searchBar" destination="9zN-vp-Kpb" id="Pcz-lD-cdp"/>
+                        <outlet property="searchContentsController" destination="2HC-i5-uWB" id="6Vz-hO-TMq"/>
+                        <outlet property="searchResultsDataSource" destination="2HC-i5-uWB" id="jbz-Qc-CNj"/>
+                        <outlet property="searchResultsDelegate" destination="2HC-i5-uWB" id="VDT-8c-yXc"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="1169" y="-249"/>
+            <point key="canvasLocation" x="-92" y="1148"/>
         </scene>
     </scenes>
 </document>
