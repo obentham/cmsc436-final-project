@@ -1,1 +1,15 @@
 /semesterProjectGroup23/semesterProjectGroup23/apikey.txt
+/semesterProjectGroup23/semesterProjectGroup23/build/
+/semesterProjectGroup23/semesterProjectGroup23/DerivedData/
+
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+/semesterProjectGroup23/semesterProjectGroup23/xcuserdata/
+
+

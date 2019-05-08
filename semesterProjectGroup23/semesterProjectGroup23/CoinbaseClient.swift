@@ -54,21 +54,71 @@ class CoinbaseClient: WebSocketDelegate {
                     for case let result as [String:Any] in json! {
                         if let product = Product(json: result)  {
                             productArray.append(product)
+                            
+                            print(product)
                         }
                     }
                 }
             }
             
-            return productArray
+            
         }
         
         dataTask.resume()
         return productArray
     }
     
-    func getHistoricRates () {
-        let getHistoricRatesURL = restAPIURL + "/products/<product-id>/candles"
-        // Get list of products, generate historic rates for them
+    func getHistoricRates (id: String, interval: String) {
+        // Historical rate data may be incomplete. No data is published for intervals where there are no ticks.
+        
+        let getHistoricRatesURL = URL(string: restAPIURL + "/products/" + id + "/candles")
+        let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
+        var dataTask: URLSessionDataTask
+        
+        var urlRequest = URLRequest(url: getHistoricRatesURL!)
+        var historicRateArray:[ProductRate] = []
+        urlRequest.addValue("2018-07-10t12:00:00", forHTTPHeaderField: "start")
+        urlRequest.addValue("2018-07-15t12:00:00", forHTTPHeaderField: "end")
+        urlRequest.addValue(interval, forHTTPHeaderField: "granularity")
+        print("test")
+        dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
+            print("hi")
+            if error == nil {
+                if let data = data {
+                    var json: Any?
+                    json = try? JSONSerialization.jsonObject(with: data, options: [])
+                    
+                    if let respdict = json as? [String : Any] {
+                        print ("string arr")
+                        print (respdict)
+                    }
+                        
+                    else if let respArr = json as? [Any]{
+                        print ("arr")
+                        //print (respArr)
+                        for case let result as [Any] in respArr {
+                            if let productRate = ProductRate(json: result, id: id, interval: interval)  {
+                                historicRateArray.append(productRate)
+                                
+                                print(productRate)
+                            }
+                        }
+                    }
+                        
+                    else if let stringRespt = String(data: data, encoding: .utf8){
+                        print ("string")
+                        print (stringRespt)
+                    }
+                    
+                }
+            }
+            
+            
+        }
+        
+        dataTask.resume()
+        
+        
         
         
     }
@@ -172,5 +222,42 @@ extension Product {
         self.base_currency = base_currency
         self.quote_currency = quote_currency
         self.display_name = display_name
+    }
+}
+
+struct ProductRate {
+    let id: String
+    let interval: String
+    let time: Int
+    let low: Double
+    let high: Double
+    let open: Double
+    let close: Double
+    let volume: Double
+}
+
+extension ProductRate {
+    init?(json: [Any], id: String, interval: String) {
+        let test = json[0] as? Int
+        
+        guard
+            let time = json[0] as? Int,
+            let low = json[1] as? Double,
+            let high = json[2] as? Double,
+            let open = json[3] as? Double,
+            let close = json[4] as? Double,
+            let volume = json[5] as? Double
+            else {
+                return nil
+        }
+        
+        self.id = id
+        self.interval = interval
+        self.time = time
+        self.low = low
+        self.high = high
+        self.open = open
+        self.close = close
+        self.volume = volume
     }
 }
