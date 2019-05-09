@@ -38,8 +38,8 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		SearchButtonOutlet.layer.cornerRadius = 10
-		TableViewOutlet.layer.cornerRadius = 5
+		//SearchButtonOutlet.layer.cornerRadius = 10
+		//TableViewOutlet.layer.cornerRadius = 5
         
         // Test Script
         

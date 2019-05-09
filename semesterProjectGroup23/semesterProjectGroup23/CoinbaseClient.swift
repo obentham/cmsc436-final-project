@@ -128,7 +128,6 @@ class CoinbaseClient: WebSocketDelegate {
     
     // STREAMS
     func connectToStream() {
-        
         if connectedToStream {
             return
         }
