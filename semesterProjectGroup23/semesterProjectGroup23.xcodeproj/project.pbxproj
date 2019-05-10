@@ -16,6 +16,7 @@
 		74B90B8A2270C8F60058742B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B892270C8F60058742B /* SearchController.swift */; };
 		74B90B8C2270C93B0058742B /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8B2270C93B0058742B /* StockController.swift */; };
 		74B90B8E2270CC890058742B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8D2270CC890058742B /* GraphView.swift */; };
+		C6FA9D29228393D10096BB40 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FA9D28228393D10096BB40 /* DataCell.swift */; };
 		DEEC5104227BF90C00DB8288 /* CoinbaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */; };
 		DEEC5106227C0A2600DB8288 /* apikey.txt in Resources */ = {isa = PBXBuildFile; fileRef = DEEC5105227C0A2600DB8288 /* apikey.txt */; };
 /* End PBXBuildFile section */
@@ -32,6 +33,7 @@
 		74B90B892270C8F60058742B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		74B90B8B2270C93B0058742B /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
 		74B90B8D2270CC890058742B /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		C6FA9D28228393D10096BB40 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 		DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseClient.swift; sourceTree = "<group>"; };
 		DEEC5105227C0A2600DB8288 /* apikey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apikey.txt; sourceTree = "<group>"; };
 		FA95F64BA5DEA7AC319EE97A /* Pods_semesterProjectGroup23.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_semesterProjectGroup23.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +94,7 @@
 				745E52D5226BE515005C0E09 /* AppDelegate.swift */,
 				745E52D7226BE515005C0E09 /* ViewController.swift */,
 				74B90B892270C8F60058742B /* SearchController.swift */,
+				C6FA9D28228393D10096BB40 /* DataCell.swift */,
 				74B90B8B2270C93B0058742B /* StockController.swift */,
 				74B90B8D2270CC890058742B /* GraphView.swift */,
 				745E52D9226BE515005C0E09 /* Main.storyboard */,
@@ -227,6 +230,7 @@
 				74B90B8E2270CC890058742B /* GraphView.swift in Sources */,
 				745E52D8226BE515005C0E09 /* ViewController.swift in Sources */,
 				74B90B8A2270C8F60058742B /* SearchController.swift in Sources */,
+				C6FA9D29228393D10096BB40 /* DataCell.swift in Sources */,
 				74B90B8C2270C93B0058742B /* StockController.swift in Sources */,
 				DEEC5104227BF90C00DB8288 /* CoinbaseClient.swift in Sources */,
 				745E52D6226BE515005C0E09 /* AppDelegate.swift in Sources */,
