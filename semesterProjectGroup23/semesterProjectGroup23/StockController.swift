@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CorePlot
 
 // When the user clicks on a stock, either in the TableView in the ViewController,
 // or in the TableView in the SearchController, the app will take them to that stock's
@@ -15,10 +16,13 @@ import UIKit
 
 class StockController: UIViewController {
 	
+	@IBOutlet weak var graphViewOutlet: GraphView!
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		self.view.addSubview(graphViewOutlet)
+		graphViewOutlet.setNeedsDisplay()
 	}
-	
-	
+
 }
