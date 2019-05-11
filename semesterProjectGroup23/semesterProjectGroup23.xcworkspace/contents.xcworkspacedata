@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../Downloads/Main.storyboard">
+   </FileRef>
+   <FileRef
       location = "group:semesterProjectGroup23.xcodeproj">
    </FileRef>
    <FileRef

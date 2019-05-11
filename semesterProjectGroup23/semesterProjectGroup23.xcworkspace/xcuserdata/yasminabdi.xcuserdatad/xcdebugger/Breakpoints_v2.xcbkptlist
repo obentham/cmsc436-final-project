@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "semesterProjectGroup23/SearchController.swift"
+            timestampString = "579257080.922672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "4"
+            endingLineNumber = "4"
+            landmarkName = "SearchController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; semesterProjectGroup23.SearchController"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579048610.393399"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; semesterProjectGroup23.SearchController"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579048610.395461"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;semesterProjectGroup23.SearchController&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579048610.400913"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;semesterProjectGroup23.SearchController&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579048610.411468"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "6"
+                  endingLineNumber = "6"
+                  offsetFromSymbolStart = "50">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.__deallocating_deinit"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579048610.415319"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "semesterProjectGroup23/SearchController.swift"
+            timestampString = "579257080.923671"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "semesterProjectGroup23/SearchController.swift"
+            timestampString = "579257080.924107"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "SearchController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.filteredData.getter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252906.247311"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.filteredData.setter : Swift.Array&lt;Swift.String&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252906.249007"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; semesterProjectGroup23.SearchController"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252906.250641"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "673">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;semesterProjectGroup23.SearchController&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252906.252169"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "15"
+                  endingLineNumber = "15"
+                  offsetFromSymbolStart = "637">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "semesterProjectGroup23/SearchController.swift"
+            timestampString = "579257080.924531"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "SearchController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.inSearchMode.getter : Swift.Bool"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252907.343536"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "77">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.inSearchMode.setter : Swift.Bool"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252907.346858"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "117">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; semesterProjectGroup23.SearchController"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252907.349412"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "792">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;semesterProjectGroup23.SearchController&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252907.351428"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "756">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "semesterProjectGroup23/SearchController.swift"
+            timestampString = "579257080.924961"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "SearchController"
+            landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "semesterProjectGroup23/SearchController.swift"
+            timestampString = "579257080.925341"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "9"
+            endingLineNumber = "9"
+            landmarkName = "SearchController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.tableView.getter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252963.629809"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.tableView.setter : Swift.Optional&lt;__C.UITableView&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252963.6326669"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; semesterProjectGroup23.SearchController"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252963.634569"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "57">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "semesterProjectGroup23.SearchController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;semesterProjectGroup23.SearchController&gt;"
+                  moduleName = "semesterProjectGroup23"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yasminabdi/cmsc436-final-project/semesterProjectGroup23/semesterProjectGroup23/SearchController.swift"
+                  timestampString = "579252963.636415"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "8"
+                  endingLineNumber = "8"
+                  offsetFromSymbolStart = "50">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

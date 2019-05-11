@@ -1,32 +1,95 @@
-//
-//  SearchController.swift
-//  semesterProjectGroup23
-//
-//  Created by Oliver Bentham on 4/24/19.
-//  Copyright © 2019 Oliver Bentham. All rights reserved.
-//
 
 import UIKit
 
-// The SearchController allows the user to search a stock using the search bar.
-// I'm not sure how this works, but I've set up the components and the blogs
-// below should help us get this done.
+class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+//
+//    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
 
-class SearchController: UITableViewController, UISearchResultsUpdating {
-	
-	// blogs to help figure out this part:
-	// https://spin.atomicobject.com/2016/11/14/uisearchcontroller-add-search-uitableviews/
-	// https://www.raywenderlich.com/472-uisearchcontroller-tutorial-getting-started
-	
-	
-	func updateSearchResults(for searchController: UISearchController) {
-		
-	}
-	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
-	}
-	
-	
+    
+    @IBOutlet var tableView: UITableView!
+
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    
+    
+    var data = ["Bitcoin", "Bitcoin Cash", "Ethereum", "Ethereum Classic", "Litecoin", "0x"]
+    
+    var filteredData = [String]()
+    
+    var inSearchMode = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        tableView.delegate = self
+        
+        tableView.dataSource = self
+        
+        searchBar.delegate = self
+        
+        searchBar.returnKeyType = UIReturnKeyType.done
+    }
+    
+    // MARK: - UITableViewDataSource
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if inSearchMode {
+            
+            return filteredData.count
+        }
+        
+        return data.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? DataCell {
+            
+            let text: String!
+            
+            if inSearchMode {
+                
+                text = filteredData[indexPath.row]
+                
+            } else {
+                
+                text = data[indexPath.row]
+            }
+            
+            cell.congigureCell(text: text)
+            
+            return cell
+            
+        } else {
+            
+            return UITableViewCell()
+        }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text == nil || searchBar.text == "" {
+            
+            inSearchMode = false
+            
+            view.endEditing(true)
+            
+            tableView.reloadData()
+            
+        } else {
+            
+            inSearchMode = true
+            
+            filteredData = data.filter({$0 == searchBar.text})
+            
+            tableView.reloadData()
+        }
+    }
 }
+
