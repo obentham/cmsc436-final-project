@@ -2,13 +2,15 @@
 import UIKit
 
 class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-    
-    
+//
+//    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
+
     
     @IBOutlet var tableView: UITableView!
-    
 
     @IBOutlet weak var searchBar: UISearchBar!
+    
+    
     
     var data = ["Bitcoin", "Bitcoin Cash", "Ethereum", "Ethereum Classic", "Litecoin", "0x"]
     

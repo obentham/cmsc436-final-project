@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import CorePlot
+// import CorePlot
 
 // When the user clicks on a stock, either in the TableView in the ViewController,
 // or in the TableView in the SearchController, the app will take them to that stock's
