@@ -9,12 +9,17 @@
 import Foundation
 import UIKit
 
-// the class below is commented out so I could see
-// what the home page of the app looks like when it runs
-
 // this class will control the graph in the StockController
 
-@IBDesignable class GraphView: UIView {
+class GraphView: UIView {
+
+	var graphPoints: [Float]!
+	var mode: viewMode!
+	
+	func updateData(data: [Float], viewMode: viewMode) {
+		graphPoints = data
+		mode = viewMode
+	}
 	
 	private struct Constants {
 		static let margin: CGFloat = 20.0
@@ -25,9 +30,6 @@ import UIKit
 	}
 	
 	var baseColor: UIColor = #colorLiteral(red: 0.1605761051, green: 0.1642630696, blue: 0.1891490221, alpha: 1)
-	
-	// sample data
-	var graphPoints: [Float] = [18.35, 16.33, 16.01, 12.55, 21.98, 28.61, 23.03, 21.52, 22.38, 17.92, 21.25, 13.95, 11.5, 28.87, 21.89, 12.87, 27.1, 28.65, 21.8, 22.26, 14.83, 26.05, 20.83, 21.19, 20.11, 29.12, 24.85, 23.37, 20.13, 16.29, 20.63, 16.98, 12.4, 13.58, 10.29, 10.27, 15.61, 19.99, 14.43, 13.67, 19.87, 23.68, 24.47, 22.25, 19.11, 18.95, 13.35, 26.24, 27.18, 18.28]
 	
 	override func draw(_ rect: CGRect) {
 		
@@ -113,11 +115,37 @@ import UIKit
 		linePath.lineWidth = 1.0
 		linePath.stroke()
 		
-		//TODO: add vertical lines
+		//add axis labels
 		
-		//TODO: add axis labels
+		let paragraphStyle = NSMutableParagraphStyle()
+		paragraphStyle.alignment = .left
 		
-		//TODO: add toggles for different time increments
+		let attributes: [NSAttributedString.Key : Any] = [
+			.paragraphStyle: paragraphStyle,
+			.font: UIFont.systemFont(ofSize: 12.0),
+			.foregroundColor: UIColor.white
+		]
+		
+		var modeText: [String]!
+		
+		// TODO: calculate these instead of hard-coding
+		if mode == viewMode.day {
+			modeText = ["9am","12pm","3pm","6pm"]
+		} else if mode == viewMode.week {
+			modeText = ["mon","tue","wed","thu","fri","sat","sun"]
+		} else if mode == viewMode.month {
+			modeText = ["4/15", "4/22", "4/29" , "5/6"]
+		} else if mode == viewMode.year {
+			modeText = ["jun", "aug", "oct", "dec", "feb", "apr"]
+		}
+		
+		let labelGap = (width - 2 * margin) / CGFloat(modeText.count)
+		
+		for i in 0..<modeText.count {
+			let attributedString = NSAttributedString(string: modeText[i], attributes: attributes)
+			let stringRect = CGRect(x: margin + (CGFloat(i) * labelGap), y: height - bottomBorder + 5, width: width - 2 * margin, height: bottomBorder)
+			attributedString.draw(in: stringRect)
+		}
 	}
 }
 
