@@ -210,21 +210,78 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="oi9-uo-JhV">
+                                <rect key="frame" x="30" y="433" width="315" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-QH-5KP">
+                                        <rect key="frame" x="0.0" y="0.0" width="52.5" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="day">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="dayAction:" destination="wT4-dy-Voi" eventType="touchUpInside" id="y53-uo-1Iu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S6R-LS-ZnT">
+                                        <rect key="frame" x="87.5" y="0.0" width="52.5" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="week">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="weekAction:" destination="wT4-dy-Voi" eventType="touchUpInside" id="p8n-Kx-DoF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ed3-EZ-pJg">
+                                        <rect key="frame" x="175" y="0.0" width="52.5" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="month">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="monthAction:" destination="wT4-dy-Voi" eventType="touchUpInside" id="yfP-Fy-PGj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YtQ-Qk-rTj">
+                                        <rect key="frame" x="262.5" y="0.0" width="52.5" height="30"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="year">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="yearAction:" destination="wT4-dy-Voi" eventType="touchUpInside" id="vvD-3g-poc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PTn-Df-g62" firstAttribute="trailing" secondItem="u4W-Ks-d6E" secondAttribute="trailing" constant="10" id="2t9-94-508"/>
+                            <constraint firstItem="oi9-uo-JhV" firstAttribute="top" secondItem="u4W-Ks-d6E" secondAttribute="bottom" constant="10" id="4kt-bg-jCo"/>
                             <constraint firstItem="4gq-2V-vVc" firstAttribute="top" secondItem="PTn-Df-g62" secondAttribute="top" constant="10" id="Fel-QC-zF3"/>
                             <constraint firstItem="u4W-Ks-d6E" firstAttribute="centerX" secondItem="PTn-Df-g62" secondAttribute="centerX" id="Omp-HY-bot"/>
                             <constraint firstItem="u4W-Ks-d6E" firstAttribute="leading" secondItem="PTn-Df-g62" secondAttribute="leading" constant="10" id="PLn-Kn-0RB"/>
+                            <constraint firstItem="PTn-Df-g62" firstAttribute="trailing" secondItem="oi9-uo-JhV" secondAttribute="trailing" constant="30" id="UUV-fB-htZ"/>
+                            <constraint firstItem="oi9-uo-JhV" firstAttribute="leading" secondItem="PTn-Df-g62" secondAttribute="leading" constant="30" id="Vc8-8R-GbP"/>
                             <constraint firstItem="4gq-2V-vVc" firstAttribute="centerX" secondItem="PTn-Df-g62" secondAttribute="centerX" id="Vkb-iW-eyx"/>
+                            <constraint firstItem="oi9-uo-JhV" firstAttribute="centerX" secondItem="PTn-Df-g62" secondAttribute="centerX" id="fac-1E-N0W"/>
                             <constraint firstItem="u4W-Ks-d6E" firstAttribute="top" secondItem="4gq-2V-vVc" secondAttribute="bottom" constant="10" id="kkD-aC-Epa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PTn-Df-g62"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="alert" selectedImage="alert" id="cDg-jv-259"/>
                     <connections>
+                        <outlet property="dayOutlet" destination="dj1-QH-5KP" id="QmC-RV-b3o"/>
                         <outlet property="graphViewOutlet" destination="u4W-Ks-d6E" id="K0D-vc-Tmi"/>
+                        <outlet property="monthOutlet" destination="Ed3-EZ-pJg" id="jCm-xC-3qd"/>
+                        <outlet property="weekOutlet" destination="S6R-LS-ZnT" id="MJJ-37-Tvk"/>
+                        <outlet property="yearOutlet" destination="YtQ-Qk-rTj" id="sjz-QT-Bks"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a1d-Xu-3Ms" userLabel="First Responder" sceneMemberID="firstResponder"/>
