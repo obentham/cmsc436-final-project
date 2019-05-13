@@ -33,6 +33,7 @@
 		74B90B892270C8F60058742B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
 		74B90B8B2270C93B0058742B /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
 		74B90B8D2270CC890058742B /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
+		C66F44D1228894F300235E96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		C6FA9D28228393D10096BB40 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 		DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseClient.swift; sourceTree = "<group>"; };
 		DEEC5105227C0A2600DB8288 /* apikey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apikey.txt; sourceTree = "<group>"; };
@@ -244,6 +245,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				745E52DA226BE515005C0E09 /* Base */,
+				C66F44D1228894F300235E96 /* en */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -381,13 +383,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TYXASM59YS;
+				DEVELOPMENT_TEAM = UZYVV5B6KB;
 				INFOPLIST_FILE = semesterProjectGroup23/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.obentham.semesterProjectGroup23;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.yabdi.semesterProjectGroup23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -400,13 +402,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = TYXASM59YS;
+				DEVELOPMENT_TEAM = UZYVV5B6KB;
 				INFOPLIST_FILE = semesterProjectGroup23/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.obentham.semesterProjectGroup23;
+				PRODUCT_BUNDLE_IDENTIFIER = edu.umd.yabdi.semesterProjectGroup23;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
