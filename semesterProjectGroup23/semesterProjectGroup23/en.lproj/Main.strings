@@ -1,0 +1,30 @@
+
+/* Class = "UILabel"; text = "stock name"; ObjectID = "4gq-2V-vVc"; */
+"4gq-2V-vVc.text" = "stock name";
+
+/* Class = "UILabel"; text = "Bitcoin"; ObjectID = "DVl-Ac-efI"; */
+"DVl-Ac-efI.text" = "Bitcoin";
+
+/* Class = "UILabel"; text = "up $6.04 [0.1% today]"; ObjectID = "Ib8-L1-ZiJ"; */
+"Ib8-L1-ZiJ.text" = "up $6.04 [0.1% today]";
+
+/* Class = "UILabel"; text = "Investing"; ObjectID = "NT8-d3-Wfg"; */
+"NT8-d3-Wfg.text" = "Investing";
+
+/* Class = "UITabBarItem"; title = "Search"; ObjectID = "PWa-Um-HzB"; */
+"PWa-Um-HzB.title" = "Search";
+
+/* Class = "UILabel"; text = "$123.12"; ObjectID = "WoB-fB-V7F"; */
+"WoB-fB-V7F.text" = "$123.12";
+
+/* Class = "UITabBarItem"; title = "Item"; ObjectID = "cDg-jv-259"; */
+"cDg-jv-259.title" = "Item";
+
+/* Class = "UILabel"; text = "Watchlist"; ObjectID = "f5W-zI-SLi"; */
+"f5W-zI-SLi.text" = "Watchlist";
+
+/* Class = "UILabel"; text = "$1234.56"; ObjectID = "pU6-VC-tdZ"; */
+"pU6-VC-tdZ.text" = "$1234.56";
+
+/* Class = "UITabBarItem"; title = "Home"; ObjectID = "s3O-8m-9KZ"; */
+"s3O-8m-9KZ.title" = "Home";
