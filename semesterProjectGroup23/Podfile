@@ -6,6 +6,6 @@ target 'semesterProjectGroup23' do
 
   # Pods for semesterProjectGroup23
 pod 'Starscream', '~> 3.0.2'
-
+pod 'CorePlot', '~> 2.2'
 
 end

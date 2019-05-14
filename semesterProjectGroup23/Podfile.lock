@@ -1,16 +1,20 @@
 PODS:
+  - CorePlot (2.2)
   - Starscream (3.0.6)
 
 DEPENDENCIES:
+  - CorePlot (~> 2.2)
   - Starscream (~> 3.0.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CorePlot
     - Starscream
 
 SPEC CHECKSUMS:
+  CorePlot: cbe0c6e14220705e32e06a89c7d6a5a908b7d7d8
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
 
-PODFILE CHECKSUM: a157081a5107a16ef8636ae150855ef28dd18cc9
+PODFILE CHECKSUM: b0df9bc3d4c401fb1bc57a57d5949f4bde41e5ed
 
 COCOAPODS: 1.6.1

@@ -17,8 +17,8 @@
 		74B90B8C2270C93B0058742B /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8B2270C93B0058742B /* StockController.swift */; };
 		74B90B8E2270CC890058742B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8D2270CC890058742B /* GraphView.swift */; };
 		C6FA9D29228393D10096BB40 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6FA9D28228393D10096BB40 /* DataCell.swift */; };
+		DE28D39A228A7C7C009D6580 /* apikey.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE28D399228A7C7C009D6580 /* apikey.txt */; };
 		DEEC5104227BF90C00DB8288 /* CoinbaseClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */; };
-		DEEC5106227C0A2600DB8288 /* apikey.txt in Resources */ = {isa = PBXBuildFile; fileRef = DEEC5105227C0A2600DB8288 /* apikey.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,8 +35,8 @@
 		74B90B8D2270CC890058742B /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C66F44D1228894F300235E96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		C6FA9D28228393D10096BB40 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
+		DE28D399228A7C7C009D6580 /* apikey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apikey.txt; sourceTree = SOURCE_ROOT; };
 		DEEC5103227BF90C00DB8288 /* CoinbaseClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinbaseClient.swift; sourceTree = "<group>"; };
-		DEEC5105227C0A2600DB8288 /* apikey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apikey.txt; sourceTree = "<group>"; };
 		FA95F64BA5DEA7AC319EE97A /* Pods_semesterProjectGroup23.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_semesterProjectGroup23.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAA42B257280EF4052C8926C /* Pods-semesterProjectGroup23.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-semesterProjectGroup23.debug.xcconfig"; path = "Target Support Files/Pods-semesterProjectGroup23/Pods-semesterProjectGroup23.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,7 +91,7 @@
 		745E52D4226BE515005C0E09 /* semesterProjectGroup23 */ = {
 			isa = PBXGroup;
 			children = (
-				DEEC5105227C0A2600DB8288 /* apikey.txt */,
+				DE28D399228A7C7C009D6580 /* apikey.txt */,
 				745E52D5226BE515005C0E09 /* AppDelegate.swift */,
 				745E52D7226BE515005C0E09 /* ViewController.swift */,
 				74B90B892270C8F60058742B /* SearchController.swift */,
@@ -170,7 +170,7 @@
 				745E52E0226BE51A005C0E09 /* LaunchScreen.storyboard in Resources */,
 				745E52DD226BE51A005C0E09 /* Assets.xcassets in Resources */,
 				745E52DB226BE515005C0E09 /* Main.storyboard in Resources */,
-				DEEC5106227C0A2600DB8288 /* apikey.txt in Resources */,
+				DE28D39A228A7C7C009D6580 /* apikey.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,12 +186,14 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-semesterProjectGroup23/Pods-semesterProjectGroup23-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CorePlot/CorePlot.framework",
 				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CorePlot.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,6 +1,8 @@
-/semesterProjectGroup23/semesterProjectGroup23/apikey.txt
-/semesterProjectGroup23/semesterProjectGroup23/build/
-/semesterProjectGroup23/semesterProjectGroup23/DerivedData/
+semesterProjectGroup23/apikey.txt
+semesterProjectGroup23/build/
+semesterProjectGroup23/DerivedData/
+semesterProjectGroup23/Pods/
+semesterProjectGroup23/semesterProjectGroup23.xcodeproj/
 
 *.pbxuser
 !default.pbxuser
@@ -10,6 +12,6 @@
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-/semesterProjectGroup23/semesterProjectGroup23/xcuserdata/
-
+semesterProjectGroup23/xcuserdata/
+.DS_Store
 
