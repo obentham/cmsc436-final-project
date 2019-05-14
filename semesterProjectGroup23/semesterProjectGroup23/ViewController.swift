@@ -68,6 +68,10 @@ class ViewController: UIViewController {
         
         self.view.addSubview(graphViewOutlet)
 		monthAction(yearOutlet)
+        
+        cbClient.getHistoricRates(id: "BTC-USD", interval: "60") { (list) in
+            print(list)
+        }
 	}
     
     override func viewWillDisappear(_ animated: Bool) {

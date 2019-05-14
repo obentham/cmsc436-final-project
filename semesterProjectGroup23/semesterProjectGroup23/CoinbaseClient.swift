@@ -76,7 +76,7 @@ class CoinbaseClient: WebSocketDelegate {
         dataTask.resume()
     }
     
-    func getHistoricRates (id: String, interval: String) {
+    func getHistoricRates (id: String, interval: String, completion: @escaping ([ProductRate]) -> ()) {
         // Historical rate data may be incomplete. No data is published for intervals where there are no ticks.
         
         let getHistoricRatesURL = URL(string: restAPIURL + "/products/" + id + "/candles")
@@ -108,9 +108,10 @@ class CoinbaseClient: WebSocketDelegate {
                             if let productRate = ProductRate(json: result, id: id, interval: interval)  {
                                 historicRateArray.append(productRate)
                                 
-                                print(productRate)
+                    
                             }
                         }
+                        completion(historicRateArray)
                     }
                         
                     else if let stringRespt = String(data: data, encoding: .utf8){
