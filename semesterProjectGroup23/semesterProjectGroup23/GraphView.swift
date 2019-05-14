@@ -126,18 +126,7 @@ class GraphView: UIView {
 			.foregroundColor: UIColor.white
 		]
 		
-		var modeText: [String]!
-		
-		// TODO: calculate these instead of hard-coding
-		if mode == viewMode.day {
-			modeText = ["9am","12pm","3pm","6pm"]
-		} else if mode == viewMode.week {
-			modeText = ["mon","tue","wed","thu","fri","sat","sun"]
-		} else if mode == viewMode.month {
-			modeText = ["4/15", "4/22", "4/29" , "5/6"]
-		} else if mode == viewMode.year {
-			modeText = ["jun", "aug", "oct", "dec", "feb", "apr"]
-		}
+		var modeText = getAxisText(mode: mode)
 		
 		let labelGap = (width - 2 * margin) / CGFloat(modeText.count)
 		
@@ -149,3 +138,56 @@ class GraphView: UIView {
 	}
 }
 
+func getAxisText(mode: viewMode) -> [String] {
+	var modeText = [String]()
+	var revModeText = [String]()
+	
+	let dateFormatter = DateFormatter()
+	
+	var currDate = Date()
+	let calendar = Calendar.current
+	
+	if mode == .day {
+		dateFormatter.dateFormat = "ha"
+		
+		revModeText.append(dateFormatter.string(from: currDate).lowercased())
+		for _ in 0..<3 {
+			currDate = calendar.date(byAdding: .hour, value: -6, to: currDate)!
+			revModeText.append(dateFormatter.string(from: currDate).lowercased())
+		}
+	} else if mode == .week {
+		dateFormatter.dateFormat = "EEE"
+		
+		revModeText.append(dateFormatter.string(from: currDate).lowercased())
+		for _ in 0..<6 {
+			currDate = calendar.date(byAdding: .day, value: -1, to: currDate)!
+			revModeText.append(dateFormatter.string(from: currDate).lowercased())
+		}
+	} else if mode == .month {
+		dateFormatter.dateFormat = "M/d"
+		
+		revModeText.append(dateFormatter.string(from: currDate))
+		for _ in 0..<3 {
+			currDate = calendar.date(byAdding: .day, value: -7, to: currDate)!
+			revModeText.append(dateFormatter.string(from: currDate))
+		}
+	} else if mode == .year {
+		dateFormatter.dateFormat = "MMM"
+		
+		// begin with month prior to current month
+		var newDate = calendar.date(byAdding: .month, value: -1, to: currDate)!
+		
+		revModeText.append(dateFormatter.string(from: newDate).lowercased())
+		for _ in 0..<5 {
+			newDate = calendar.date(byAdding: .month, value: -2, to: newDate)!
+			revModeText.append(dateFormatter.string(from: newDate).lowercased())
+		}
+	}
+	
+	
+	for arrayIndex in stride(from: revModeText.count - 1, through: 0, by: -1) {
+		modeText.append(revModeText[arrayIndex])
+	}
+	
+	return modeText
+}
