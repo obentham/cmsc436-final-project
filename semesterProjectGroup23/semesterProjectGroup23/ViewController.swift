@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     
     
+    @IBOutlet weak var changeLabel: UILabel!
     @IBOutlet weak var coinNameLabel: UILabel!
     @IBOutlet weak var curPriceLabel: UILabel!
     @IBOutlet weak var dayOutlet: UIButton!
@@ -49,9 +50,6 @@ class ViewController: UIViewController {
         }
         
         
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(3.0), target: self, selector: #selector(self.refreshData), userInfo: nil, repeats: true)
-        
-        
         let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(moveToNextItem(_:)))
         let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(moveToNextItem(_:)))
         
@@ -69,13 +67,23 @@ class ViewController: UIViewController {
         self.view.addSubview(graphViewOutlet)
 		monthAction(yearOutlet)
         
+        /*
         cbClient.getHistoricRates(id: "BTC-USD", interval: "60") { (list) in
             print(list)
+        }*/
+        
+        cbClient.get24hrStats(id: "BTC-USD") { (list) in
+            print(list)
+            
         }
+        
+        
 	}
     
     override func viewWillDisappear(_ animated: Bool) {
         timer.invalidate()
+        cbClient.disconnectFromStream()
+        print("disconnecting")
         
     }
     
@@ -105,6 +113,47 @@ class ViewController: UIViewController {
         if (cbClient.coinID != productArray[curProductIndex].id) {
             cbClient.disconnectFromStream()
             cbClient.connectToStream(coinID: productArray[curProductIndex].id)
+            timer = Timer.scheduledTimer(timeInterval: TimeInterval(0.5), target: self, selector: #selector(self.refreshData), userInfo: nil, repeats: true)
+            
+            cbClient.get24hrStats(id: productArray[curProductIndex].id) { (list) in
+                print(list)
+                var openString = list["open"]!
+                var lastString = list["last"]!
+                
+                openString.remove(at: openString.startIndex)
+                lastString.remove(at: lastString.startIndex)
+                
+                let openDouble = Double(openString)!
+                let lastDouble = Double(lastString)!
+                
+                let difference = lastDouble - openDouble
+                let growthPercent = difference / openDouble
+                
+                
+                
+                
+                var changeLabelString = ""
+                let upOrDown = difference >= 0 ? "up ": "down "
+                let differenceFormated = String(format: "$%.02f", difference)
+                let growthFormated = String(format: "%.02f", growthPercent)
+                
+                changeLabelString = upOrDown + differenceFormated + " " + growthFormated + "%"
+              
+                DispatchQueue.main.async {
+                    if difference >= 0 {
+                       self.changeLabel.textColor = UIColor.green
+                    } else {
+                        self.changeLabel.textColor = UIColor.red
+                    }
+                    
+                    
+                    
+                    self.changeLabel.text = changeLabelString
+                    
+                    
+                }
+                
+            }
         }
         
         
@@ -176,6 +225,13 @@ class ViewController: UIViewController {
         yearOutlet.setTitleColor(.black, for: .normal)
     }
     
+}
+
+enum viewMode: String {
+    case day
+    case week
+    case month
+    case year
 }
 
 

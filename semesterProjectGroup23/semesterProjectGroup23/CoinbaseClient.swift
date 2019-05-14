@@ -76,6 +76,93 @@ class CoinbaseClient: WebSocketDelegate {
         dataTask.resume()
     }
     
+    func get24hrStats (id:String ,completion: @escaping ([String:String]) -> ()) {
+        let get24hrStatsURL = URL(string: restAPIURL + "/products/" + id + "/stats")
+        let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
+        var dataTask: URLSessionDataTask
+        
+        let urlRequest = URLRequest(url: get24hrStatsURL!)
+        
+        dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
+            
+            if error == nil {
+                if let data = data {
+                    var json: Any?
+
+                    json = try? JSONSerialization.jsonObject(with: data, options: [])
+                    
+                    if let respdict = json as? [String : Any] {
+                        print ("string arr22")
+                        print (respdict)
+                        var retArray:[String:String] = [:]
+                        
+                        
+                        if var open = respdict["open"] as? String {
+                            //open.remove(at: open.startIndex)
+                            let openDouble = Double(open)!
+                            let openFormated = String(format: "$%.02f", openDouble)
+                            retArray["open"] = openFormated
+                        }
+                        
+                        if var last = respdict["last"] as? String {
+                            //last.remove(at: last.startIndex)
+                            let lastDouble = Double(last)!
+                            let lastFormated = String(format: "$%.02f", lastDouble)
+                            retArray["last"] = lastFormated
+                        }
+                        
+                        if var low = respdict["low"] as? String {
+                            //low.remove(at: low.startIndex)
+                            let lowDouble = Double(low)!
+                            let lowFormated = String(format: "$%.02f", lowDouble)
+                            retArray["low"] = lowFormated
+                        }
+                        
+                        if var high = respdict["high"] as? String {
+                            //high.remove(at: high.startIndex)
+                            let highDouble = Double(high)!
+                            let highFormated = String(format: "$%.02f", highDouble)
+                            retArray["high"] = highFormated
+                        }
+                        
+                        if var volume_30day = respdict["volume_30day"] as? String {
+                            //volume_30day.remove(at: volume_30day.startIndex)
+                            let volDouble = Double(volume_30day)!
+                            let volFormated = String(format: "$%.02f", volDouble)
+                            retArray["volume_30day"] = volFormated
+                        }
+                        
+                        if var volume = respdict["volume"] as? String {
+                            //volume.remove(at: volume.startIndex)
+                            let volDouble = Double(volume)!
+                            let volFormated = String(format: "$%.02f", volDouble)
+                            retArray["volume"] = volFormated
+                        }
+
+                        completion(retArray)
+                        
+                    }
+                        
+                    else if let respArr = json as? [Any]{
+                        print ("arr")
+                        print (respArr)
+
+                    }
+                        
+                    else if let stringRespt = String(data: data, encoding: .utf8){
+                        print ("string")
+                        print (stringRespt)
+                        
+                    }
+                    
+                }
+            }
+        }
+        
+        dataTask.resume()
+        
+    }
+    
     func getHistoricRates (id: String, interval: String, completion: @escaping ([ProductRate]) -> ()) {
         // Historical rate data may be incomplete. No data is published for intervals where there are no ticks.
         
@@ -117,6 +204,7 @@ class CoinbaseClient: WebSocketDelegate {
                     else if let stringRespt = String(data: data, encoding: .utf8){
                         print ("string")
                         print (stringRespt)
+                        
                     }
                     
                 }
@@ -128,6 +216,9 @@ class CoinbaseClient: WebSocketDelegate {
         dataTask.resume()
     }
     
+    func convertToCurrency () {
+        
+    }
     
     
     
@@ -138,7 +229,7 @@ class CoinbaseClient: WebSocketDelegate {
         }
         self.coinID = coinID
         
-        print("Connecting to stream")
+        print("Connecting to stream " + coinID)
         let webSocketFeedURL = "wss://ws-feed.pro.coinbase.com"
         var request = URLRequest(url: URL(string: webSocketFeedURL)!)
         request.timeoutInterval = 5
@@ -182,7 +273,7 @@ class CoinbaseClient: WebSocketDelegate {
         let jsonData = try! JSONSerialization.data(withJSONObject: body, options: [])
         let jsonString = String(data: jsonData, encoding: String.Encoding.ascii)!
         socket.write(string: jsonString, completion: {
-            print("Subscribing to  Ticker")
+            print("Subscribing to  Ticker " + self.coinID)
             
         })
  
@@ -212,7 +303,7 @@ class CoinbaseClient: WebSocketDelegate {
             //print ("string arr")
             if let changesAry = respdict["changes"] as? [[String]] {
                 curPrice = changesAry[0][1]
-                curPrice.remove(at: curPrice.startIndex)
+                //curPrice.remove(at: curPrice.startIndex)
 
             }
             

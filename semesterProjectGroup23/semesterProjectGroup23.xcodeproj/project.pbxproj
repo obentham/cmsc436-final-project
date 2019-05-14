@@ -14,7 +14,6 @@
 		745E52DD226BE51A005C0E09 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 745E52DC226BE51A005C0E09 /* Assets.xcassets */; };
 		745E52E0226BE51A005C0E09 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 745E52DE226BE51A005C0E09 /* LaunchScreen.storyboard */; };
 		74B90B8A2270C8F60058742B /* SearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B892270C8F60058742B /* SearchController.swift */; };
-		74B90B8C2270C93B0058742B /* StockController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8B2270C93B0058742B /* StockController.swift */; };
 		74B90B8E2270CC890058742B /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B90B8D2270CC890058742B /* GraphView.swift */; };
 		DE28D39A228A7C7C009D6580 /* apikey.txt in Resources */ = {isa = PBXBuildFile; fileRef = DE28D399228A7C7C009D6580 /* apikey.txt */; };
 		DEBFC61C228B44EF00007CB7 /* SearchTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEBFC61B228B44EF00007CB7 /* SearchTableCell.swift */; };
@@ -32,7 +31,6 @@
 		745E52DF226BE51A005C0E09 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		745E52E1226BE51A005C0E09 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74B90B892270C8F60058742B /* SearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchController.swift; sourceTree = "<group>"; };
-		74B90B8B2270C93B0058742B /* StockController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockController.swift; sourceTree = "<group>"; };
 		74B90B8D2270CC890058742B /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		C66F44D1228894F300235E96 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		DE28D399228A7C7C009D6580 /* apikey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = apikey.txt; sourceTree = SOURCE_ROOT; };
@@ -98,7 +96,6 @@
 				745E52D7226BE515005C0E09 /* ViewController.swift */,
 				74B90B892270C8F60058742B /* SearchController.swift */,
 				DEBFC61B228B44EF00007CB7 /* SearchTableCell.swift */,
-				74B90B8B2270C93B0058742B /* StockController.swift */,
 				74B90B8D2270CC890058742B /* GraphView.swift */,
 				745E52D9226BE515005C0E09 /* Main.storyboard */,
 				DEBFC61D228B4D7500007CB7 /* StatsController.swift */,
@@ -237,7 +234,6 @@
 				745E52D8226BE515005C0E09 /* ViewController.swift in Sources */,
 				74B90B8A2270C8F60058742B /* SearchController.swift in Sources */,
 				DEBFC61E228B4D7500007CB7 /* StatsController.swift in Sources */,
-				74B90B8C2270C93B0058742B /* StockController.swift in Sources */,
 				DEEC5104227BF90C00DB8288 /* CoinbaseClient.swift in Sources */,
 				DEBFC61C228B44EF00007CB7 /* SearchTableCell.swift in Sources */,
 				745E52D6226BE515005C0E09 /* AppDelegate.swift in Sources */,

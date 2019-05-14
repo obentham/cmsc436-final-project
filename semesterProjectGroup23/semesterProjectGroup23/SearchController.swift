@@ -10,10 +10,12 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     
     var cbClient: CoinbaseClient
     var productArray: [Product]
+    var selectedID: String
     
     required init?(coder aDecoder: NSCoder) {
         self.cbClient = CoinbaseClient()
         self.productArray = []
+        self.selectedID = ""
         
         super.init(coder: aDecoder)
     }
@@ -67,8 +69,17 @@ class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //tableView deselectRowAtIndexPath:indexPath animated:YES
         tableView.deselectRow(at: indexPath, animated: true)
+        selectedID = productArray[indexPath.row].id
+        self.performSegue(withIdentifier: "TableIDToStatsVC", sender: self)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "TableIDToStatsVC" {
+            let statsVC = segue.destination as! StatsController
+            statsVC.selectedID = selectedID
+        }
     }
     
 }
