@@ -38,7 +38,7 @@ class CoinbaseClient: WebSocketDelegate {
     }
     
     // REST API CALLS
-    func getProducts() -> [Product]{
+    func getProducts(completion: @escaping ([Product]) -> ()) {
         let getProductsURL = URL(string: restAPIURL + "/products")
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         var dataTask: URLSessionDataTask
@@ -53,11 +53,14 @@ class CoinbaseClient: WebSocketDelegate {
                     
                     for case let result as [String:Any] in json! {
                         if let product = Product(json: result)  {
-                            productArray.append(product)
-                            
-                            print(product)
+                            if (product.quote_currency == "USD") {
+                                productArray.append(product)
+                            }
+  
                         }
                     }
+                    
+                    completion(productArray)
                 }
             }
             
@@ -65,7 +68,6 @@ class CoinbaseClient: WebSocketDelegate {
         }
         
         dataTask.resume()
-        return productArray
     }
     
     func getHistoricRates (id: String, interval: String) {

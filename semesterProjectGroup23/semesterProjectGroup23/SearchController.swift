@@ -2,94 +2,74 @@
 import UIKit
 
 class SearchController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
-//
-//    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as UITableViewCell
 
     
-    @IBOutlet var tableView: UITableView!
 
-    @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var tableView: UITableView!
     
+    var cbClient: CoinbaseClient
+    var productArray: [Product]
     
-    var data = ["Bitcoin", "Bitcoin Cash", "Ethereum", "Ethereum Classic", "Litecoin", "0x"]
-    
-    var filteredData = [String]()
-    
-    var inSearchMode = false
+    required init?(coder aDecoder: NSCoder) {
+        self.cbClient = CoinbaseClient()
+        self.productArray = []
+        
+        super.init(coder: aDecoder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
         
         tableView.delegate = self
-        
         tableView.dataSource = self
+        self.tableView.rowHeight = 50.0
         
-        searchBar.delegate = self
         
-        searchBar.returnKeyType = UIReturnKeyType.done
-    }
-    
-    // MARK: - UITableViewDataSource
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
+        //searchBar.delegate = self
         
-        return 1
+        //searchBar.returnKeyType = UIReturnKeyType.done
+        print("HI")
+        cbClient.getProducts() { (list) in
+            self.productArray = list
+            print("GOT LIST")
+            print(list)
+            self.productArray.sort(by: { $0.id < $1.id })
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        if inSearchMode {
-            
-            return filteredData.count
-        }
-        
-        return data.count
+        return productArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? DataCell {
-            
-            let text: String!
-            
-            if inSearchMode {
-                
-                text = filteredData[indexPath.row]
-                
-            } else {
-                
-                text = data[indexPath.row]
-            }
-            
-            cell.congigureCell(text: text)
-            
-            return cell
-            
-        } else {
-            
-            return UITableViewCell()
+        let cellIdentifier = "SearchTableCell"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SearchTableCell  else {
+            fatalError("The dequeued cell is not an instance of SearchTableCell.")
         }
+        
+        // Fetches the appropriate meal for the data source layout.
+        let product = productArray[indexPath.row]
+        
+        cell.nameLabel.text = product.display_name
+        cell.idLabel.text = product.id
+        
+        
+        return cell
+        
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
-        if searchBar.text == nil || searchBar.text == "" {
-            
-            inSearchMode = false
-            
-            view.endEditing(true)
-            
-            tableView.reloadData()
-            
-        } else {
-            
-            inSearchMode = true
-            
-            filteredData = data.filter({$0 == searchBar.text})
-            
-            tableView.reloadData()
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //tableView deselectRowAtIndexPath:indexPath animated:YES
+        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
 }
 
