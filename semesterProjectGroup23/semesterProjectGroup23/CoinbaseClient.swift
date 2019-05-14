@@ -20,6 +20,10 @@ class CoinbaseClient: WebSocketDelegate {
     var connectedToStream: Bool
     let apiKey: String
     let restAPIURL: String
+    var coinID: String
+    var curPrice: String
+    
+    
     
     init () {
         connectedToStream = false
@@ -35,6 +39,8 @@ class CoinbaseClient: WebSocketDelegate {
             print("Error: \(error)")
         }
         apiKey = keyFromFile
+        coinID = ""
+        curPrice = "1234.56"
     }
     
     // REST API CALLS
@@ -117,22 +123,20 @@ class CoinbaseClient: WebSocketDelegate {
             
             
         }
-        
+
         dataTask.resume()
-        
-        
-        
-        
     }
     
     
     
     
     // STREAMS
-    func connectToStream() {
+    func connectToStream(coinID: String) {
         if connectedToStream {
             return
         }
+        self.coinID = coinID
+        
         print("Connecting to stream")
         let webSocketFeedURL = "wss://ws-feed.pro.coinbase.com"
         var request = URLRequest(url: URL(string: webSocketFeedURL)!)
@@ -145,14 +149,22 @@ class CoinbaseClient: WebSocketDelegate {
 
     }
     
+    func disconnectFromStream() {
+        if (connectedToStream) {
+            socket.disconnect()
+            connectedToStream = false
+        }
+        
+    }
+    
     func websocketDidConnect(socket: WebSocketClient) {
         print("Coinbase websocket is connected")
-
+        connectedToStream = true
         let body: [String: Any] =
             [
                 "type": "subscribe",
                 "product_ids": [
-                    "ETH-USD"
+                    coinID
                 ],
                 "channels": [
                     "level2",
@@ -160,7 +172,7 @@ class CoinbaseClient: WebSocketDelegate {
                     [
                         "name": "ticker",
                         "product_ids": [
-                            "ETH-BTC"
+                            coinID
                         ]
                     ]
                 ]
@@ -178,6 +190,7 @@ class CoinbaseClient: WebSocketDelegate {
     }
     
     func websocketDidDisconnect(socket: WebSocketClient, error: Error?) {
+        connectedToStream = false
         if let e = error as? WSError {
             print("websocket is disconnected: \(e.message)")
         } else if let e = error {
@@ -189,10 +202,36 @@ class CoinbaseClient: WebSocketDelegate {
     
     func websocketDidReceiveMessage(socket: WebSocketClient, text: String) {
         //print("Received text: \(text)")
+        let data = text.data(using: .utf8)!
+        
+        var json: Any?
+        json = try? JSONSerialization.jsonObject(with: data, options: [])
+        
+        if let respdict = json as? [String : Any] {
+            //print ("string arr")
+            if let changesAry = respdict["changes"] as? [[String]] {
+                curPrice = changesAry[0][1]
+                curPrice.remove(at: curPrice.startIndex)
+
+            }
+            
+            
+        } else {
+            print ("something wrong was returned")
+        }
+        
+        
     }
     
     func websocketDidReceiveData(socket: WebSocketClient, data: Data) {
         print("Received data: \(data.count)")
+    }
+    
+    func getCurrentPrice () -> String {
+        let doubleString = Double(curPrice)!
+        let returnPrice = String(format: "$%.02f", doubleString)
+        //print (returnPrice)
+        return returnPrice
     }
 }
 
