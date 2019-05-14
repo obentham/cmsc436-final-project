@@ -127,7 +127,7 @@ class ViewController: UIViewController {
                 let lastDouble = Double(lastString)!
                 
                 let difference = lastDouble - openDouble
-                let growthPercent = difference / openDouble
+                let growthPercent = difference / openDouble * 100
                 
                 
                 
