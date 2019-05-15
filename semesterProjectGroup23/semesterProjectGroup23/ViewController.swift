@@ -55,7 +55,7 @@ class ViewController: UIViewController {
             self.productArray.sort(by: { $0.id < $1.id })
             
             self.refreshData()
-			
+						
 			self.view.addSubview(self.graphViewOutlet)
 			self.yearAction(self.yearOutlet)
         }
