@@ -171,15 +171,27 @@ class CoinbaseClient: WebSocketDelegate {
 		let currDate = dateFormatter.string(from: Date())
 		print("this is the current date: " + currDate)
 		
-        let getHistoricRatesURL = URL(string: restAPIURL + "/products/" + id + "/candles")
+        //let getHistoricRatesURL =
+        
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "api.pro.coinbase.com"
+        urlComponents.path = "/products/" + id + "/candles"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "start", value: startDate),
+            URLQueryItem(name: "end", value: currDate),
+            URLQueryItem(name: "granularity", value: interval)
+        ]
+        
+        let getHistoricRatesURL =  urlComponents.url
+        print (getHistoricRatesURL!)
+        
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         var dataTask: URLSessionDataTask
         
         var urlRequest = URLRequest(url: getHistoricRatesURL!)
         var historicRateArray:[ProductRate] = []
-        urlRequest.addValue(startDate, forHTTPHeaderField: "start")
-        urlRequest.addValue(currDate, forHTTPHeaderField: "end")
-        urlRequest.addValue(interval, forHTTPHeaderField: "granularity")
+        
         
         dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
             
@@ -205,6 +217,7 @@ class CoinbaseClient: WebSocketDelegate {
                         }
                         
                         historicRateArray.reverse()
+                        //print (historicRateArray)
                         completion(historicRateArray)
                     }
                         

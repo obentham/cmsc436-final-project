@@ -80,6 +80,8 @@ class GraphView: UIView {
 			//at the correct (x, y) for the point
 			for i in 1..<graphPoints.count {
 				let nextPoint = CGPoint(x:columnXPoint(i), y:columnYPoint(Int(graphPoints[i])))
+                
+                
 				graphPath.addLine(to: nextPoint)
 			}
 			

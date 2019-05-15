@@ -186,7 +186,7 @@ class ViewController: UIViewController {
 		
 		print ("Day action")
 		
-		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "900") { (list) in
+		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "60") { (list) in
             print("day")
             print (list)
             for time in list {
