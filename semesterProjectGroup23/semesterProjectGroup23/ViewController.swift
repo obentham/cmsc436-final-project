@@ -139,9 +139,7 @@ class ViewController: UIViewController {
                 
                 let difference = lastDouble - openDouble
                 let growthPercent = difference / openDouble * 100
-                
-                
-                
+				
                 
                 var changeLabelString = ""
                 let upOrDown = difference >= 0 ? "up ": "down "
@@ -149,19 +147,18 @@ class ViewController: UIViewController {
                 let growthFormated = String(format: "%.02f", growthPercent)
                 
                 changeLabelString = upOrDown + differenceFormated + " " + growthFormated + "%"
-              
+				
                 DispatchQueue.main.async {
                     if difference >= 0 {
                        self.changeLabel.textColor = UIColor.green
                     } else {
                         self.changeLabel.textColor = UIColor.red
                     }
-                    
-					self.graphViewOutlet.setNeedsDisplay()
-                    
+					
                     self.changeLabel.text = changeLabelString
-                    
-                    
+					
+					self.yearAction(self.yearOutlet)
+                    self.graphViewOutlet.setNeedsDisplay()
                 }
                 
             }
@@ -173,7 +170,7 @@ class ViewController: UIViewController {
             self.coinNameLabel.text = self.productArray[self.curProductIndex].base_currency
             
             self.curPriceLabel.text = self.cbClient.getCurrentPrice()
-            
+			
         }
     }
     
