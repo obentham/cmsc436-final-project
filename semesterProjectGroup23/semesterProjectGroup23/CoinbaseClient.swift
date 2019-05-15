@@ -18,7 +18,6 @@ class CoinbaseClient: WebSocketDelegate {
     
     var socket: WebSocket!
     var connectedToStream: Bool
-    let apiKey: String
     let restAPIURL: String
     var coinID: String
     var curPrice: String
@@ -28,17 +27,7 @@ class CoinbaseClient: WebSocketDelegate {
     init () {
         connectedToStream = false
         restAPIURL = "https://api.pro.coinbase.com"
-        
-        let path = Bundle.main.path(forResource: "apikey", ofType: "txt")
-        var keyFromFile = ""
-        do {
-            keyFromFile = try String(contentsOfFile: path!, encoding: .ascii)
-            keyFromFile = keyFromFile.trimmingCharacters(in: .whitespacesAndNewlines)
-            
-        } catch {
-            print("Error: \(error)")
-        }
-        apiKey = keyFromFile
+		
         coinID = ""
         curPrice = "1234.56"
     }

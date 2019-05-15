@@ -138,7 +138,7 @@ class GraphView: UIView {
 			
 			for i in 0..<modeText.count {
 				let attributedString = NSAttributedString(string: modeText[i], attributes: attributes)
-				let stringRect = CGRect(x: margin + (CGFloat(i) * labelGap), y: height - bottomBorder + 5, width: width - 2 * margin, height: bottomBorder)
+				let stringRect = CGRect(x: margin + (CGFloat(i) * labelGap), y: height - bottomBorder + 5, width: labelGap, height: bottomBorder)
 				attributedString.draw(in: stringRect)
 			}
 		}
