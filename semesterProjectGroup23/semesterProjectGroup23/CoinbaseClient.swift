@@ -163,17 +163,22 @@ class CoinbaseClient: WebSocketDelegate {
         
     }
     
-    func getHistoricRates (id: String, interval: String, completion: @escaping ([ProductRate]) -> ()) {
+    func getHistoricRates (id: String, startDate: String, interval: String, completion: @escaping ([ProductRate]) -> ()) {
         // Historical rate data may be incomplete. No data is published for intervals where there are no ticks.
-        
+		
+		let dateFormatter = DateFormatter()
+		dateFormatter.dateFormat = "yyyy-MM-dd't'hh:mm:ss"
+		let currDate = dateFormatter.string(from: Date())
+		print("this is the current date: " + currDate)
+		
         let getHistoricRatesURL = URL(string: restAPIURL + "/products/" + id + "/candles")
         let defaultSession = URLSession(configuration: URLSessionConfiguration.default)
         var dataTask: URLSessionDataTask
         
         var urlRequest = URLRequest(url: getHistoricRatesURL!)
         var historicRateArray:[ProductRate] = []
-        urlRequest.addValue("2018-07-10t12:00:00", forHTTPHeaderField: "start")
-        urlRequest.addValue("2018-07-15t12:00:00", forHTTPHeaderField: "end")
+        urlRequest.addValue(startDate, forHTTPHeaderField: "start")
+        urlRequest.addValue(currDate, forHTTPHeaderField: "end")
         urlRequest.addValue(interval, forHTTPHeaderField: "granularity")
         print("test")
         dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in

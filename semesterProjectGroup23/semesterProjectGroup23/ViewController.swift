@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     var timer: Timer
     var productArray: [Product]
     var curProductIndex: Int
+	
+	var historicData: [Float]
+	let calendar = Calendar.current
+	let dateFormatter = DateFormatter()
     
     let sampleData: [Float] = [18.35, 16.33, 16.01, 12.55, 21.98, 28.61, 23.03, 21.52, 22.38, 17.92, 21.25, 13.95, 11.5, 28.87, 21.89, 12.87, 27.1, 28.65, 21.8, 22.26, 14.83, 26.05, 20.83, 21.19, 20.11, 29.12, 24.85, 23.37, 20.13, 16.29, 20.63, 16.98, 12.4, 13.58, 10.29, 10.27, 15.61, 19.99, 14.43, 13.67, 19.87, 23.68, 24.47, 22.25, 19.11, 18.95, 13.35, 26.24, 27.18, 18.28]
     
@@ -34,6 +38,7 @@ class ViewController: UIViewController {
         self.productArray = []
         self.curProductIndex = 0
         self.timer = Timer()
+		self.historicData = []
         
         super.init(coder: aDecoder)
     }
@@ -42,11 +47,17 @@ class ViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		dateFormatter.dateFormat = "yyyy-MM-dd't'hh:mm:ss"
+		
         cbClient.getProducts() { (list) in
             self.productArray = list
             self.productArray.sort(by: { $0.id < $1.id })
             
             self.refreshData()
+			
+			self.view.addSubview(self.graphViewOutlet)
+			self.yearAction(self.yearOutlet)
         }
         
         
@@ -63,9 +74,6 @@ class ViewController: UIViewController {
         weekOutlet.layer.cornerRadius = 15
         monthOutlet.layer.cornerRadius = 15
         yearOutlet.layer.cornerRadius = 15
-        
-        self.view.addSubview(graphViewOutlet)
-		monthAction(yearOutlet)
         
         /*
         cbClient.getHistoricRates(id: "BTC-USD", interval: "60") { (list) in
@@ -166,72 +174,136 @@ class ViewController: UIViewController {
         }
     }
     
-    //GRAPHING
-    
-    @IBAction func dayAction(_ sender: Any) {
-        graphViewOutlet.updateData(data: sampleData, viewMode: .day)
-        graphViewOutlet.setNeedsDisplay()
-        
-        dayOutlet.backgroundColor = .white
-        dayOutlet.setTitleColor(.black, for: .normal)
-        weekOutlet.backgroundColor = .black
-        weekOutlet.setTitleColor(.white, for: .normal)
-        monthOutlet.backgroundColor = .black
-        monthOutlet.setTitleColor(.white, for: .normal)
-        yearOutlet.backgroundColor = .black
-        yearOutlet.setTitleColor(.white, for: .normal)
-    }
-    
-    @IBAction func weekAction(_ sender: Any) {
-        graphViewOutlet.updateData(data: sampleData, viewMode: .week)
-        graphViewOutlet.setNeedsDisplay()
-        
-        dayOutlet.backgroundColor = .black
-        dayOutlet.setTitleColor(.white, for: .normal)
-        weekOutlet.backgroundColor = .white
-        weekOutlet.setTitleColor(.black, for: .normal)
-        monthOutlet.backgroundColor = .black
-        monthOutlet.setTitleColor(.white, for: .normal)
-        yearOutlet.backgroundColor = .black
-        yearOutlet.setTitleColor(.white, for: .normal)
-    }
-    
-    @IBAction func monthAction(_ sender: Any) {
-        graphViewOutlet.updateData(data: sampleData, viewMode: .month)
-        graphViewOutlet.setNeedsDisplay()
-        
-        dayOutlet.backgroundColor = .black
-        dayOutlet.setTitleColor(.white, for: .normal)
-        weekOutlet.backgroundColor = .black
-        weekOutlet.setTitleColor(.white, for: .normal)
-        monthOutlet.backgroundColor = .white
-        monthOutlet.setTitleColor(.black, for: .normal)
-        yearOutlet.backgroundColor = .black
-        yearOutlet.setTitleColor(.white, for: .normal)
-        
-    }
-    
-    @IBAction func yearAction(_ sender: Any) {
-        graphViewOutlet.updateData(data: sampleData, viewMode: .year)
-        graphViewOutlet.setNeedsDisplay()
-        
-        dayOutlet.backgroundColor = .black
-        dayOutlet.setTitleColor(.white, for: .normal)
-        weekOutlet.backgroundColor = .black
-        weekOutlet.setTitleColor(.white, for: .normal)
-        monthOutlet.backgroundColor = .black
-        monthOutlet.setTitleColor(.white, for: .normal)
-        yearOutlet.backgroundColor = .white
-        yearOutlet.setTitleColor(.black, for: .normal)
-    }
-    
+	//GRAPHING
+	
+	@IBAction func dayAction(_ sender: Any) {
+		historicData = []
+		let currDate = Date()
+		let startDate = dateFormatter.string(from: calendar.date(byAdding: .day, value: -1, to: currDate)!)
+		
+		print("self.curProductIndex")
+		print(self.curProductIndex)
+		print("self.productArray")
+		print(self.productArray)
+		print("self.productArray[self.curProductIndex].id")
+		print(self.productArray[self.curProductIndex].id)
+		
+		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "900") { (list) in
+			for time in list {
+				self.historicData.append(Float(time.low))
+			}
+			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .day)
+			self.graphViewOutlet.setNeedsDisplay()
+		}
+		
+		dayOutlet.backgroundColor = .white
+		dayOutlet.setTitleColor(.black, for: .normal)
+		weekOutlet.backgroundColor = .black
+		weekOutlet.setTitleColor(.white, for: .normal)
+		monthOutlet.backgroundColor = .black
+		monthOutlet.setTitleColor(.white, for: .normal)
+		yearOutlet.backgroundColor = .black
+		yearOutlet.setTitleColor(.white, for: .normal)
+	}
+	
+	@IBAction func weekAction(_ sender: Any) {
+		historicData = []
+		let currDate = Date()
+		let startDate = dateFormatter.string(from: calendar.date(byAdding: .day, value: -7, to: currDate)!)
+		
+		print("self.curProductIndex")
+		print(self.curProductIndex)
+		print("self.productArray")
+		print(self.productArray)
+		print("self.productArray[self.curProductIndex].id")
+		print(self.productArray[self.curProductIndex].id)
+		
+		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "21600") { (list) in
+			for time in list {
+				self.historicData.append(Float(time.low))
+			}
+			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .week)
+			self.graphViewOutlet.setNeedsDisplay()
+		}
+		
+		dayOutlet.backgroundColor = .black
+		dayOutlet.setTitleColor(.white, for: .normal)
+		weekOutlet.backgroundColor = .white
+		weekOutlet.setTitleColor(.black, for: .normal)
+		monthOutlet.backgroundColor = .black
+		monthOutlet.setTitleColor(.white, for: .normal)
+		yearOutlet.backgroundColor = .black
+		yearOutlet.setTitleColor(.white, for: .normal)
+	}
+	
+	@IBAction func monthAction(_ sender: Any) {
+		historicData = []
+		let currDate = Date()
+		let startDate = dateFormatter.string(from: calendar.date(byAdding: .month, value: -1, to: currDate)!)
+		
+		print("self.curProductIndex")
+		print(self.curProductIndex)
+		print("self.productArray")
+		print(self.productArray)
+		print("self.productArray[self.curProductIndex].id")
+		print(self.productArray[self.curProductIndex].id)
+		
+		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "86400") { (list) in
+			print(list)
+			for time in list {
+				self.historicData.append(Float(time.low))
+			}
+			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .month)
+			self.graphViewOutlet.setNeedsDisplay()
+		}
+		
+		dayOutlet.backgroundColor = .black
+		dayOutlet.setTitleColor(.white, for: .normal)
+		weekOutlet.backgroundColor = .black
+		weekOutlet.setTitleColor(.white, for: .normal)
+		monthOutlet.backgroundColor = .white
+		monthOutlet.setTitleColor(.black, for: .normal)
+		yearOutlet.backgroundColor = .black
+		yearOutlet.setTitleColor(.white, for: .normal)
+	}
+	
+	@IBAction func yearAction(_ sender: Any) {
+		historicData = []
+		let currDate = Date()
+		let startDate = dateFormatter.string(from: calendar.date(byAdding: .year, value: -1, to: currDate)!)
+		
+		print("this is the start date: " + startDate)
+		
+		print("self.curProductIndex")
+		print(self.curProductIndex)
+		print("self.productArray")
+		print(self.productArray)
+		print("self.productArray[self.curProductIndex].id")
+		print(self.productArray[self.curProductIndex].id)
+		
+		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "86400") { (list) in
+			for time in list {
+				self.historicData.append(Float(time.low))
+			}
+			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .year)
+			self.graphViewOutlet.setNeedsDisplay()
+		}
+		
+		dayOutlet.backgroundColor = .black
+		dayOutlet.setTitleColor(.white, for: .normal)
+		weekOutlet.backgroundColor = .black
+		weekOutlet.setTitleColor(.white, for: .normal)
+		monthOutlet.backgroundColor = .black
+		monthOutlet.setTitleColor(.white, for: .normal)
+		yearOutlet.backgroundColor = .white
+		yearOutlet.setTitleColor(.black, for: .normal)
+	}
+	
 }
 
 enum viewMode: String {
-    case day
-    case week
-    case month
-    case year
+	case day
+	case week
+	case month
+	case year
 }
-
-
