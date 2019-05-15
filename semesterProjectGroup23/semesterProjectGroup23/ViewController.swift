@@ -157,7 +157,7 @@ class ViewController: UIViewController {
                         self.changeLabel.textColor = UIColor.red
                     }
                     
-                    
+					self.graphViewOutlet.setNeedsDisplay()
                     
                     self.changeLabel.text = changeLabelString
                     
@@ -186,7 +186,7 @@ class ViewController: UIViewController {
 		
 		print ("Day action")
 		
-		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "60") { (list) in
+		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "300") { (list) in
             print("day")
             print (list)
             for time in list {
@@ -272,7 +272,7 @@ class ViewController: UIViewController {
 	@IBAction func yearAction(_ sender: Any) {
 		historicData = []
 		let currDate = Date()
-		let startDate = dateFormatter.string(from: calendar.date(byAdding: .year, value: -1, to: currDate)!)
+		let startDate = dateFormatter.string(from: calendar.date(byAdding: .month, value: -6, to: currDate)!)
 
 		
 		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "86400") { (list) in

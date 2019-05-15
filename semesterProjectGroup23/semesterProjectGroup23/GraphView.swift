@@ -124,7 +124,7 @@ class GraphView: UIView {
 			//add axis labels
 			
 			let paragraphStyle = NSMutableParagraphStyle()
-			paragraphStyle.alignment = .left
+			paragraphStyle.alignment = .center
 			
 			let attributes: [NSAttributedString.Key : Any] = [
 				.paragraphStyle: paragraphStyle,
@@ -181,13 +181,10 @@ func getAxisText(mode: viewMode) -> [String] {
 	} else if mode == .year {
 		dateFormatter.dateFormat = "MMM"
 		
-		// begin with month prior to current month
-		var newDate = calendar.date(byAdding: .month, value: -1, to: currDate)!
-		
-		revModeText.append(dateFormatter.string(from: newDate).lowercased())
+		revModeText.append(dateFormatter.string(from: currDate).lowercased())
 		for _ in 0..<5 {
-			newDate = calendar.date(byAdding: .month, value: -2, to: newDate)!
-			revModeText.append(dateFormatter.string(from: newDate).lowercased())
+			currDate = calendar.date(byAdding: .month, value: -1, to: currDate)!
+			revModeText.append(dateFormatter.string(from: currDate).lowercased())
 		}
 	}
 	
