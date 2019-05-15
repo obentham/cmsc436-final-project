@@ -17,7 +17,9 @@ class GraphView: UIView {
 	var mode: viewMode = .year
 	
 	func updateData(data: [Float], viewMode: viewMode) {
-		graphPoints = data
+
+        print (viewMode)
+        graphPoints = data
 		mode = viewMode
 	}
 	

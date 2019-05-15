@@ -55,9 +55,12 @@ class ViewController: UIViewController {
             self.productArray.sort(by: { $0.id < $1.id })
             
             self.refreshData()
-						
-			self.view.addSubview(self.graphViewOutlet)
-			self.yearAction(self.yearOutlet)
+            
+            DispatchQueue.main.async {
+                self.view.addSubview(self.graphViewOutlet)
+                self.yearAction(self.yearOutlet)
+            }
+			
         }
         
         
@@ -124,7 +127,7 @@ class ViewController: UIViewController {
             timer = Timer.scheduledTimer(timeInterval: TimeInterval(0.5), target: self, selector: #selector(self.refreshData), userInfo: nil, repeats: true)
             
             cbClient.get24hrStats(id: productArray[curProductIndex].id) { (list) in
-                print(list)
+                
                 var openString = list["open"]!
                 var lastString = list["last"]!
                 
@@ -181,19 +184,20 @@ class ViewController: UIViewController {
 		let currDate = Date()
 		let startDate = dateFormatter.string(from: calendar.date(byAdding: .day, value: -1, to: currDate)!)
 		
-		print("self.curProductIndex")
-		print(self.curProductIndex)
-		print("self.productArray")
-		print(self.productArray)
-		print("self.productArray[self.curProductIndex].id")
-		print(self.productArray[self.curProductIndex].id)
+		print ("Day action")
 		
 		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "900") { (list) in
-			for time in list {
+            print("day")
+            print (list)
+            for time in list {
 				self.historicData.append(Float(time.low))
 			}
 			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .day)
-			self.graphViewOutlet.setNeedsDisplay()
+            
+            DispatchQueue.main.async {
+                self.graphViewOutlet.setNeedsDisplay()
+            }
+            
 		}
 		
 		dayOutlet.backgroundColor = .white
@@ -210,20 +214,21 @@ class ViewController: UIViewController {
 		historicData = []
 		let currDate = Date()
 		let startDate = dateFormatter.string(from: calendar.date(byAdding: .day, value: -7, to: currDate)!)
-		
-		print("self.curProductIndex")
-		print(self.curProductIndex)
-		print("self.productArray")
-		print(self.productArray)
-		print("self.productArray[self.curProductIndex].id")
-		print(self.productArray[self.curProductIndex].id)
+        
 		
 		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "21600") { (list) in
+            
+            print("WEEK")
+            print (list)
 			for time in list {
 				self.historicData.append(Float(time.low))
 			}
 			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .week)
-			self.graphViewOutlet.setNeedsDisplay()
+            
+            DispatchQueue.main.async {
+                self.graphViewOutlet.setNeedsDisplay()
+            }
+			
 		}
 		
 		dayOutlet.backgroundColor = .black
@@ -240,13 +245,7 @@ class ViewController: UIViewController {
 		historicData = []
 		let currDate = Date()
 		let startDate = dateFormatter.string(from: calendar.date(byAdding: .month, value: -1, to: currDate)!)
-		
-		print("self.curProductIndex")
-		print(self.curProductIndex)
-		print("self.productArray")
-		print(self.productArray)
-		print("self.productArray[self.curProductIndex].id")
-		print(self.productArray[self.curProductIndex].id)
+
 		
 		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "86400") { (list) in
 			print(list)
@@ -254,7 +253,10 @@ class ViewController: UIViewController {
 				self.historicData.append(Float(time.low))
 			}
 			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .month)
-			self.graphViewOutlet.setNeedsDisplay()
+            DispatchQueue.main.async {
+                self.graphViewOutlet.setNeedsDisplay()
+            }
+            
 		}
 		
 		dayOutlet.backgroundColor = .black
@@ -271,22 +273,21 @@ class ViewController: UIViewController {
 		historicData = []
 		let currDate = Date()
 		let startDate = dateFormatter.string(from: calendar.date(byAdding: .year, value: -1, to: currDate)!)
-		
-		print("this is the start date: " + startDate)
-		
-		print("self.curProductIndex")
-		print(self.curProductIndex)
-		print("self.productArray")
-		print(self.productArray)
-		print("self.productArray[self.curProductIndex].id")
-		print(self.productArray[self.curProductIndex].id)
+
 		
 		cbClient.getHistoricRates(id: self.productArray[self.curProductIndex].id, startDate: startDate, interval: "86400") { (list) in
+            
+            print("year")
+            print (list)
 			for time in list {
 				self.historicData.append(Float(time.low))
 			}
 			self.graphViewOutlet.updateData(data: self.historicData, viewMode: .year)
-			self.graphViewOutlet.setNeedsDisplay()
+            
+            DispatchQueue.main.async {
+                self.graphViewOutlet.setNeedsDisplay()
+            }
+			
 		}
 		
 		dayOutlet.backgroundColor = .black

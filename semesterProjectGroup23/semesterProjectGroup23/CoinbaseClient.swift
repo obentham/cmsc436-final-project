@@ -180,9 +180,9 @@ class CoinbaseClient: WebSocketDelegate {
         urlRequest.addValue(startDate, forHTTPHeaderField: "start")
         urlRequest.addValue(currDate, forHTTPHeaderField: "end")
         urlRequest.addValue(interval, forHTTPHeaderField: "granularity")
-        print("test")
+        
         dataTask = defaultSession.dataTask(with: urlRequest) { (data, response, error) in
-            print("hi")
+            
             if error == nil {
                 if let data = data {
                     var json: Any?
@@ -195,7 +195,7 @@ class CoinbaseClient: WebSocketDelegate {
                         
                     else if let respArr = json as? [Any]{
                         print ("arr")
-                        //print (respArr)
+                        
                         for case let result as [Any] in respArr {
                             if let productRate = ProductRate(json: result, id: id, interval: interval)  {
                                 historicRateArray.append(productRate)
@@ -203,6 +203,8 @@ class CoinbaseClient: WebSocketDelegate {
                     
                             }
                         }
+                        
+                        historicRateArray.reverse()
                         completion(historicRateArray)
                     }
                         
